@@ -249,7 +249,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/20/ElasticSerach学习笔记(二)/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/11/SpringBoot-support-LocalDate/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mr.Xia">
@@ -268,7 +268,508 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/10/20/ElasticSerach学习笔记(二)/" itemprop="url">Elsaticsearch学习笔记(二)</a></h1>
+                <a class="post-title-link" href="/2018/03/11/SpringBoot-support-LocalDate/" itemprop="url">在SpringBoot中使用LocalDate类型参数</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-11T01:50:44+08:00">
+                2018-03-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>Java 8日期/时间（ Date/Time）API是开发人员最受追捧的变化之一，其简洁、清晰以及线程安全等特性使得其推出后就备受Java开发者欢迎。</p>
+<p>Java 8日期/时间API是<a href="https://jcp.org/en/jsr/detail?id=310" target="_blank" rel="external">JSR-310</a>的实现，它的实现目标是克服旧的日期时间实现中所有的缺陷。但是Spring中的很多组件标准（如JPA2.1）的制定时间更早，因此未兼容到Java 8的新时间类型（LocalDate, LocalTime, LocalDateTime)，所以直接使用这些类型作为时间属性时，会出现转换失败等异常。</p>
+<p>但Spring各组件在随后的更新中均添加了对Java 8新时间类型的支持，但是需要进行手动配置。使用这些相关的支持，可以让我们更愉快地使用LocalDate等类型作为我们对象默认的时间属性了。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/11/SpringBoot-support-LocalDate/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/28/设计模式——工厂模式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr.Xia">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Memories Off - Mine">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/28/设计模式——工厂模式/" itemprop="url">设计模式——工厂模式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-28T20:13:40+08:00">
+                2017-11-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h2><h2 id="工厂方法模式"><a href="#工厂方法模式" class="headerlink" title="工厂方法模式"></a>工厂方法模式</h2><blockquote>
+<p><strong>工厂方法模式</strong>定义了一个创建对象的接口，但由于子类决定要实例化的类是哪一个。工厂方法让类把实例化推迟到子类。</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/26/ElasticSerach学习笔记-三/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr.Xia">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Memories Off - Mine">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/26/ElasticSerach学习笔记-三/" itemprop="url">ElasticSerach学习笔记（三）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-26T22:07:19+08:00">
+                2017-11-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>现在，我们已经学会了如何使用 Elasticsearch 作为一个简单的 NoSQL 风格的分布式文档存储系统。我们可以将一个 JSON 文档扔到 Elasticsearch 里，然后根据 ID 检索。但 Elasticsearch 真正强大之处在于可以从无规律的数据中找出有意义的信息。</p>
+<p>对文档进行检索和查找是Elasticsearch的核心，Elasticsearch 不只会<em>存储（stores）</em> 文档，为了能被搜索到也会为文档添加<em>索引（indexes）</em> ，这也是为什么我们使用结构化的 JSON 文档，而不是无结构的二进制数据。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/26/ElasticSerach学习笔记-三/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/07/greys使用指南/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr.Xia">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Memories Off - Mine">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/07/greys使用指南/" itemprop="url">greys使用指南</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-07T22:11:30+08:00">
+                2017-11-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="Greys-简介"><a href="#Greys-简介" class="headerlink" title="Greys 简介"></a>Greys 简介</h2><blockquote>
+<p>很早的时候，我们使用BTrace排查问题，在感叹BTrace的强大之余，也曾好几次将线上系统折腾挂掉。2012年淘宝的聚石写了HouseMD，将常用的几个Btrace脚本整合在一起形成一个独立风格的应用，但其核心代码用的是Scala，我们没这方面的编程维护经验，所以只好艳羡HouseMD的才思敏捷而无法在其上增加功能。</p>
+<h3 id="于是乎，Greys诞生了！"><a href="#于是乎，Greys诞生了！" class="headerlink" title="于是乎，Greys诞生了！"></a>于是乎，Greys诞生了！</h3></blockquote>
+<p><strong>PS：目前Greys仅支持Linux/Unix/Mac上的Java6+，Windows暂时无法支持</strong></p>
+<p>Greys是一个JVM进程执行过程中的异常诊断工具。 在不中断程序执行的情况下轻松完成JVM相关问题排查工作。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/07/greys使用指南/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/20/ElasticSerach学习笔记-二/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr.Xia">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Memories Off - Mine">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/20/ElasticSerach学习笔记-二/" itemprop="url">Elsaticsearch学习笔记(二)</a></h1>
         
 
         <div class="post-meta">
@@ -326,7 +827,7 @@
 <figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"name"</span>:         <span class="string">"John Smith"</span>,</div><div class="line">    <span class="attr">"age"</span>:          <span class="number">42</span>,</div><div class="line">    <span class="attr">"confirmed"</span>:    <span class="literal">true</span>,</div><div class="line">    <span class="attr">"join_date"</span>:    <span class="string">"2014-06-01"</span>,</div><div class="line">    <span class="attr">"home"</span>: &#123;</div><div class="line">        <span class="attr">"lat"</span>:      <span class="number">51.5</span>,</div><div class="line">        <span class="attr">"lon"</span>:      <span class="number">0.1</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">"accounts"</span>: [</div><div class="line">        &#123;</div><div class="line">            <span class="attr">"type"</span>: <span class="string">"facebook"</span>,</div><div class="line">            <span class="attr">"id"</span>:   <span class="string">"johnsmith"</span></div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">            <span class="attr">"type"</span>: <span class="string">"twitter"</span>,</div><div class="line">            <span class="attr">"id"</span>:   <span class="string">"johnsmith"</span></div><div class="line">        &#125;</div><div class="line">    ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/10/20/ElasticSerach学习笔记(二)/#more" rel="contents">
+            <a class="btn" href="/2017/10/20/ElasticSerach学习笔记-二/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -377,7 +878,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/19/ ElasticSerach学习笔记(一)/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/19/ElasticSerach学习笔记-一/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mr.Xia">
@@ -396,7 +897,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/10/19/ ElasticSerach学习笔记(一)/" itemprop="url">Elsaticsearch学习笔记(一)</a></h1>
+                <a class="post-title-link" href="/2017/10/19/ElasticSerach学习笔记-一/" itemprop="url">Elsaticsearch学习笔记(一)</a></h1>
         
 
         <div class="post-meta">
@@ -457,7 +958,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">brew update</div><div class="line">brew install elasticsearch</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/10/19/ ElasticSerach学习笔记(一)/#more" rel="contents">
+            <a class="btn" href="/2017/10/19/ElasticSerach学习笔记-一/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -541,7 +1042,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -554,7 +1055,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -593,7 +1094,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

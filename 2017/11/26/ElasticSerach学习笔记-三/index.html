@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Elsaticsearch," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="现在，我们已经学会了如何使用 Elasticsearch 作为一个简单的 NoSQL 风格的分布式文档存储系统。我们可以将一个 JSON 文档扔到 Elasticsearch 里，然后根据 ID 检索。但 Elasticsearch 真正强大之处在于可以从无规律的数据中找出有意义的信息。 对文档进行检索和查找是Elasticsearch的核心，Elasticsearch 不只会存储（stores）">
+<meta name="keywords" content="Elsaticsearch">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ElasticSerach学习笔记（三）">
+<meta property="og:url" content="http://yoursite.com/2017/11/26/ElasticSerach学习笔记-三/index.html">
+<meta property="og:site_name" content="Memories Off - Mine">
+<meta property="og:description" content="现在，我们已经学会了如何使用 Elasticsearch 作为一个简单的 NoSQL 风格的分布式文档存储系统。我们可以将一个 JSON 文档扔到 Elasticsearch 里，然后根据 ID 检索。但 Elasticsearch 真正强大之处在于可以从无规律的数据中找出有意义的信息。 对文档进行检索和查找是Elasticsearch的核心，Elasticsearch 不只会存储（stores）">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-11-26T14:09:31.919Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ElasticSerach学习笔记（三）">
+<meta name="twitter:description" content="现在，我们已经学会了如何使用 Elasticsearch 作为一个简单的 NoSQL 风格的分布式文档存储系统。我们可以将一个 JSON 文档扔到 Elasticsearch 里，然后根据 ID 检索。但 Elasticsearch 真正强大之处在于可以从无规律的数据中找出有意义的信息。 对文档进行检索和查找是Elasticsearch的核心，Elasticsearch 不只会存储（stores）">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/11/26/ElasticSerach学习笔记-三/"/>
+
+
+
+
+
+  <title>ElasticSerach学习笔记（三） | Memories Off - Mine</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Memories Off - Mine</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/26/ElasticSerach学习笔记-三/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr.Xia">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Memories Off - Mine">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ElasticSerach学习笔记（三）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-26T22:07:19+08:00">
+                2017-11-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>现在，我们已经学会了如何使用 Elasticsearch 作为一个简单的 NoSQL 风格的分布式文档存储系统。我们可以将一个 JSON 文档扔到 Elasticsearch 里，然后根据 ID 检索。但 Elasticsearch 真正强大之处在于可以从无规律的数据中找出有意义的信息。</p>
+<p>对文档进行检索和查找是Elasticsearch的核心，Elasticsearch 不只会<em>存储（stores）</em> 文档，为了能被搜索到也会为文档添加<em>索引（indexes）</em> ，这也是为什么我们使用结构化的 JSON 文档，而不是无结构的二进制数据。</p>
+<a id="more"></a>
+<p><em>搜索（search）</em> 可以做到：</p>
+<ul>
+<li>在类似于 <code>gender</code> 或者 <code>age</code> 这样的字段 上使用结构化查询，<code>join_date</code> 这样的字段上使用排序，就像SQL的结构化查询一样。</li>
+<li>全文检索，找出所有匹配关键字的文档并按照<em>相关性（relevance）</em> 排序后返回结果。</li>
+<li>以上二者兼而有之。</li>
+</ul>
+<p>很多搜索都是开箱即用的，为了充分挖掘 Elasticsearch 的潜力，你需要理解以下三个概念：</p>
+<ul>
+<li><p><em>映射（Mapping）</em></p>
+<p>描述数据在每个字段内如何存储</p>
+</li>
+<li><p><em>分析（Analysis）</em></p>
+<p>全文是如何处理使之可以被搜索的</p>
+</li>
+<li><p><em>领域特定查询语言（Query DSL）</em></p>
+<p>Elasticsearch 中强大灵活的查询语言</p>
+</li>
+</ul>
+<p>以上提到的每点都是一个大话题，在深入了解之前，我们首先了解一些基本概念——大致了解搜索是如何工作的。</p>
+<h2 id="使用搜索"><a href="#使用搜索" class="headerlink" title="使用搜索"></a>使用搜索</h2><p>发送一个空的搜索API，将简单地返回集群中所有索引下的所有文档：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">GET /_search</div></pre></td></tr></table></figure>
+<p>返回结果会类似如下：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"took"</span>: <span class="number">1</span>,</div><div class="line">  <span class="attr">"timed_out"</span>: <span class="literal">false</span>,</div><div class="line">  <span class="attr">"_shards"</span>: &#123;</div><div class="line">    <span class="attr">"total"</span>: <span class="number">21</span>,</div><div class="line">    <span class="attr">"successful"</span>: <span class="number">21</span>,</div><div class="line">    <span class="attr">"skipped"</span>: <span class="number">0</span>,</div><div class="line">    <span class="attr">"failed"</span>: <span class="number">0</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">"hits"</span>: &#123;</div><div class="line">    <span class="attr">"total"</span>: <span class="number">21</span>,</div><div class="line">    <span class="attr">"max_score"</span>: <span class="number">1</span>,</div><div class="line">    <span class="attr">"hits"</span>: [</div><div class="line">      &#123;</div><div class="line">        <span class="attr">"_index"</span>: <span class="string">"us"</span></div><div class="line">        ...</div><div class="line">      &#125;</div><div class="line">     ]</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="hits"><a href="#hits" class="headerlink" title="hits"></a>hits</h3><p>返回结果中最重要的部分是 <code>hits</code> ，它 包含 <code>total</code> 字段来表示匹配到的文档总数，并且一个 <code>hits</code> 数组包含所查询结果的前十个文档。</p>
+<p>每个结果还有一个 <code>_score</code> ，它衡量了文档与查询的匹配程度。默认情况下，首先返回最相关的文档结果，也就是说，默认结果返回的文档是按照 <code>_score</code> 降序排列的。在这个例子中，没有指定任何查询，因此所有的<code>_score</code>均为1。</p>
+<h3 id="took"><a href="#took" class="headerlink" title="took"></a>took</h3><p><code>took</code> 值告诉我们执行整个搜索请求耗费了多少毫秒。</p>
+<h3 id="shards"><a href="#shards" class="headerlink" title="shards"></a>shards</h3><p><code>_shards</code> 部分 告诉我们在查询中参与分片的总数，以及这些分片成功了多少个失败了多少个。</p>
+<h3 id="timeout"><a href="#timeout" class="headerlink" title="timeout"></a>timeout</h3><p><code>timed_out</code> 值告诉我们查询是否超时。</p>
+<h2 id="指定索引和类型"><a href="#指定索引和类型" class="headerlink" title="指定索引和类型"></a>指定索引和类型</h2><p>如果不对某一特殊的索引或者类型做限制，就会搜索集群中的所有文档。Elasticsearch 转发搜索请求到每一个主分片或者副本分片，汇集查询出的前10个结果，并且返回给我们。</p>
+<p>然而，经常的情况下，你 想在一个或多个特殊的索引并且在一个或者多个特殊的类型中进行搜索。我们可以通过在URL中指定特殊的索引和类型达到这种效果，如下所示：</p>
+<ul>
+<li><p><code>/_search</code></p>
+<p>在所有的索引中搜索所有的类型</p>
+</li>
+<li><p><code>/gb/_search</code></p>
+<p>在 <code>gb</code> 索引中搜索所有的类型</p>
+</li>
+<li><p><code>/gb,us/_search</code></p>
+<p>在 <code>gb</code> 和 <code>us</code> 索引中搜索所有的文档</p>
+</li>
+<li><p><code>/g*,u*/_search</code></p>
+<p>在任何以 <code>g</code> 或者 <code>u</code> 开头的索引中搜索所有的类型</p>
+</li>
+<li><p><code>/gb/user/_search</code></p>
+<p>在 <code>gb</code> 索引中搜索 <code>user</code> 类型</p>
+</li>
+<li><p><code>/gb,us/user,tweet/_search</code></p>
+<p>在 <code>gb</code> 和 <code>us</code> 索引中搜索 <code>user</code> 和 <code>tweet</code> 类型</p>
+</li>
+<li><p><code>/_all/user,tweet/_search</code></p>
+<p>在所有的索引中搜索 <code>user</code> 和 <code>tweet</code> 类型</p>
+</li>
+</ul>
+<h3 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h3><p>和 SQL 使用 <code>LIMIT</code> 关键字返回单个 <code>page</code> 结果的方法相同，Elasticsearch 接受 <code>from</code> 和 <code>size</code> 参数：</p>
+<ul>
+<li><p><code>size</code></p>
+<p>显示应该返回的结果数量，默认是 <code>10</code></p>
+</li>
+<li><p><code>from</code></p>
+<p>显示应该跳过的初始结果数量，默认是 <code>0</code></p>
+</li>
+</ul>
+<p>如果每页展示 5 条结果，可以用下面方式请求得到 1 到 3 页的结果：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">GET /_search?size=5</div><div class="line">GET /_search?size=5&amp;from=5</div><div class="line">GET /_search?size=5&amp;from=10</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Elsaticsearch/" rel="tag"># Elsaticsearch</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/07/greys使用指南/" rel="next" title="greys使用指南">
+                <i class="fa fa-chevron-left"></i> greys使用指南
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/28/设计模式——工厂模式/" rel="prev" title="设计模式——工厂模式">
+                设计模式——工厂模式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Mr.Xia</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用搜索"><span class="nav-number">1.</span> <span class="nav-text">使用搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hits"><span class="nav-number">1.1.</span> <span class="nav-text">hits</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#took"><span class="nav-number">1.2.</span> <span class="nav-text">took</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shards"><span class="nav-number">1.3.</span> <span class="nav-text">shards</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#timeout"><span class="nav-number">1.4.</span> <span class="nav-text">timeout</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指定索引和类型"><span class="nav-number">2.</span> <span class="nav-text">指定索引和类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分页"><span class="nav-number">2.1.</span> <span class="nav-text">分页</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr.Xia</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

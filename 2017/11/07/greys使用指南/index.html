@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Java," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Greys 简介 很早的时候，我们使用BTrace排查问题，在感叹BTrace的强大之余，也曾好几次将线上系统折腾挂掉。2012年淘宝的聚石写了HouseMD，将常用的几个Btrace脚本整合在一起形成一个独立风格的应用，但其核心代码用的是Scala，我们没这方面的编程维护经验，所以只好艳羡HouseMD的才思敏捷而无法在其上增加功能。 于是乎，Greys诞生了！ PS：目前Greys仅支持Lin">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="greys使用指南">
+<meta property="og:url" content="http://yoursite.com/2017/11/07/greys使用指南/index.html">
+<meta property="og:site_name" content="Memories Off - Mine">
+<meta property="og:description" content="Greys 简介 很早的时候，我们使用BTrace排查问题，在感叹BTrace的强大之余，也曾好几次将线上系统折腾挂掉。2012年淘宝的聚石写了HouseMD，将常用的几个Btrace脚本整合在一起形成一个独立风格的应用，但其核心代码用的是Scala，我们没这方面的编程维护经验，所以只好艳羡HouseMD的才思敏捷而无法在其上增加功能。 于是乎，Greys诞生了！ PS：目前Greys仅支持Lin">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-11-09T12:53:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="greys使用指南">
+<meta name="twitter:description" content="Greys 简介 很早的时候，我们使用BTrace排查问题，在感叹BTrace的强大之余，也曾好几次将线上系统折腾挂掉。2012年淘宝的聚石写了HouseMD，将常用的几个Btrace脚本整合在一起形成一个独立风格的应用，但其核心代码用的是Scala，我们没这方面的编程维护经验，所以只好艳羡HouseMD的才思敏捷而无法在其上增加功能。 于是乎，Greys诞生了！ PS：目前Greys仅支持Lin">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/11/07/greys使用指南/"/>
+
+
+
+
+
+  <title>greys使用指南 | Memories Off - Mine</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Memories Off - Mine</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/07/greys使用指南/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr.Xia">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Memories Off - Mine">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">greys使用指南</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-07T22:11:30+08:00">
+                2017-11-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Greys-简介"><a href="#Greys-简介" class="headerlink" title="Greys 简介"></a>Greys 简介</h2><blockquote>
+<p>很早的时候，我们使用BTrace排查问题，在感叹BTrace的强大之余，也曾好几次将线上系统折腾挂掉。2012年淘宝的聚石写了HouseMD，将常用的几个Btrace脚本整合在一起形成一个独立风格的应用，但其核心代码用的是Scala，我们没这方面的编程维护经验，所以只好艳羡HouseMD的才思敏捷而无法在其上增加功能。</p>
+<h3 id="于是乎，Greys诞生了！"><a href="#于是乎，Greys诞生了！" class="headerlink" title="于是乎，Greys诞生了！"></a>于是乎，Greys诞生了！</h3></blockquote>
+<p><strong>PS：目前Greys仅支持Linux/Unix/Mac上的Java6+，Windows暂时无法支持</strong></p>
+<p>Greys是一个JVM进程执行过程中的异常诊断工具。 在不中断程序执行的情况下轻松完成JVM相关问题排查工作。</p>
+<a id="more"></a>
+<h3 id="目标群体"><a href="#目标群体" class="headerlink" title="目标群体"></a>目标群体</h3><ul>
+<li>时候突然一个问题反馈上来，需要入参才能完成定位，但恰恰没有任何日志. 回去加上并重新部署, 花费了大把时间,是不是很崩溃?</li>
+<li>当经过反复折腾后,在自己代码所有入参和出参都加上了debug日志, 但这次问题又出现在了别人的代码里,是不是很无奈?</li>
+<li>当遇到线上一个性能问题无法确定到底是哪个环节的耗时,只能反复抓<code>jstack</code>猜,是不是开始怀疑人生?</li>
+</ul>
+<p>以上就是greys的目标客户, greys利用Java6的<code>Instrumentation</code>特性，动态增强你所指定的类，获取你想要到的信息。</p>
+<h3 id="软件特点"><a href="#软件特点" class="headerlink" title="软件特点"></a>软件特点</h3><ul>
+<li><p><strong>ClassLoader隔离</strong></p>
+<p>greys的设计者花费了非常多的精力在隔离目标类与Greys的ClassLoader隔离上。因此可以放心大胆的使用Greys，而不用担心Greys会干扰到现有业务代码所使用的三方类库。</p>
+</li>
+<li><p><strong>运行时加载</strong></p>
+<p>利用<code>Instrumentation</code>特性(要求目标JVM在JDK6+的基础上，且当前执行人拥有与目标JVM相同权限)。可以做到不中断当前JVM而动态进行加载、问题分析定位。</p>
+</li>
+<li><p><strong>常用问题定位命令化</strong></p>
+<p>Greys与BTrace等同类软件最大的不同在于， 将常用的排查手段和排查思路命令化， 更方便问题的定位和分析。</p>
+</li>
+<li><p><strong>表达式支持</strong></p>
+<p>HouseMD相比BTrace最强大的地方就在于能快速指定拦截的类与方法，但却无法支持对观察到的对象进行展开、条件过滤等操作。BTrace的脚本是自己所编写，可以实现此类功能。但编写学习成本很高，且容易出错。</p>
+<p>表达式的引用能综合这两款软件的特长同时弥补他们的不足。目前Greys所采用的是OGNL表达式。</p>
+</li>
+<li><p><strong>多用户同时访问</strong></p>
+<p>远程DEBUG最大的问题就在于，只允许一个人访问DEBUG端口，而且一单断点条件设置不当，很有可能将其他正常的业务请求拦下，影响其他用户的使用。</p>
+<p>Greys采用的思路是做观察者，其所设置的断点不允许阻塞正常业务的流程，但你可以观察到断点所拦截到的所有信息。</p>
+</li>
+<li><p><strong>高性能</strong></p>
+<p>精心用ASM设计了字节码增强，核心的数据结构用数组针对实际场景做裁剪优化。可以放心的用在高负载有求下的JVM环境。</p>
+</li>
+<li><p><strong>纯Java编写</strong></p>
+<p>Greys定位是<code>专业的JVM的业务问题定位工具</code>，既然是JVM那我们所面对的大部分就是Java程序员。我希望能Share自己在编写软件时候的所有技巧与思路，让更多的Java程序员能参与开发或从中受益。</p>
+</li>
+</ul>
+<h3 id="不适合的场景"><a href="#不适合的场景" class="headerlink" title="不适合的场景"></a>不适合的场景</h3><p>Greys并不万能，我也没有计划让她能成为万能的问题定位工具。</p>
+<ul>
+<li><p><strong>性能环境下的性能损耗定位</strong></p>
+<p>Greys虽然性能损耗很小，但其分析的维度太少，所以只适合做简单的性能损耗定位。性能分析需要有更专业的软件，如JProfiler。</p>
+</li>
+<li><p><strong>开发环境下的远程DEBUG</strong></p>
+<p>虽然Greys能取代部分的远程DEBUG行为，但毕竟没不像DEBUG工具那样可以看到局部变量的值，而且可操作性上也没有JVM下Eclipse/IDEA等优秀的IDE自带的DEBUG工具这么人性化操作。</p>
+</li>
+<li><p><strong>线上环境大规模部署</strong></p>
+<p>greys为了实现简单没有做过多的鉴权控制，如果大规模部署容易遭受黑客的攻击。</p>
+</li>
+<li><p><strong>JDK类库分析</strong></p>
+<p>Greys默认情况下关闭了对这些类的增强，因此无法对jdk的类进行分析。当然，对于Spring、ibatis、Tomcat等三方类库是可以放心大胆使用的。</p>
+</li>
+<li><p><strong>其它不适合场景</strong></p>
+<p>BTrace、Greys此类工具都会对Perm区产生干扰，如果程序对这块比较敏感，也不推荐在这种场合下使用。</p>
+</li>
+</ul>
+<h2 id="功能特性"><a href="#功能特性" class="headerlink" title="功能特性"></a>功能特性</h2><h3 id="交互方式"><a href="#交互方式" class="headerlink" title="交互方式"></a>交互方式</h3><ul>
+<li><p><strong>命令行交互</strong></p>
+<p>greys的主要交互方式，最成熟的交互方案。</p>
+</li>
+<li><p><strong>图形界面交互</strong></p>
+<p>目前仅在开发者的开发计划中</p>
+</li>
+</ul>
+<h3 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h3><ul>
+<li><p>查看已被JVM所加载的类、方法信息</p>
+</li>
+<li><p>方法执行监控</p>
+<p>包括调用量，成功失败率，响应时间</p>
+</li>
+<li><p>方法执行数据</p>
+<p>入参、返回值、异常信息记录与查看</p>
+</li>
+<li><p>性能开销渲染</p>
+<p>跟踪指定路径的方法调用轨迹，耗时</p>
+</li>
+<li><p>查看方法调用堆栈</p>
+</li>
+</ul>
+<h2 id="Greys入门"><a href="#Greys入门" class="headerlink" title="Greys入门"></a>Greys入门</h2><h3 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h3><p>包括在线安装和本地安装两种方案，安装即可用，无需多余配置。</p>
+<ul>
+<li><p><strong>在线安装</strong></p>
+<p>使用以下命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -sLk http://ompc.oss.aliyuncs.com/greys/install.sh |bash</div></pre></td></tr></table></figure>
+<p>命令将会下载的启动脚本文件<code>greys.sh</code>到当前目录，你可以放在任何地方或加入到<code>$PATH</code>中</p>
+<p>该shell会将greys的最新jar包下载到用户目录下，并运行greys</p>
+</li>
+<li><p>本地安装</p>
+<p>在无法访问远程阿里云主机的情况下，需要自行下载greys安装文件。</p>
+<ol>
+<li><p>下载最新版本的GREYS</p>
+<blockquote>
+<p><a href="http://ompc.oss.aliyuncs.com/greys/release/greys-stable-bin.zip" target="_blank" rel="external">http://ompc.oss.aliyuncs.com/greys/release/greys-stable-bin.zip</a></p>
+</blockquote>
+</li>
+<li><p>解压zip文件后，执行以下命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd greys</div><div class="line">sh ./install-local.sh</div></pre></td></tr></table></figure>
+<p>即完成本地安装。</p>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="启动Greys"><a href="#启动Greys" class="headerlink" title="启动Greys"></a>启动Greys</h3><ul>
+<li><p><strong>参数说明</strong></p>
+</li>
+<li><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./greys.sh &lt;PID&gt;[@IP:PORT]</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>PID：</strong>目标Java进程ID（请确保执行当前执行命令的用户必须有足够的权限操作对应的Java进程）</li>
+<li><strong>IP：</strong>目标服务器IP地址，当远程服务开启之后，其他人可以通过指定IP的形式加载到对应目标机器的Java进程中，从而实现远程协助。专门用于解决目标主机账号没有权限，但对方兄弟却非常需要你支援的时候。Greys允许多个用户同时访问，并且各自的命令不会相互干扰执行。</li>
+<li><strong>PORT：</strong>目标服务器端口号，设计端口号的初心则是希望解决同台机器上存在多个Java进程需要被Greys分析的情况，默认的端口号是3658，如果不做区分则会引起端口冲突。</li>
+</ul>
+</li>
+<li><p><strong>启动范例</strong></p>
+<p>以dmsdk为例，在IDEA启动SdkServer之后，通过jps查看SdkServer的进程ID：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">?&gt; jps</div><div class="line">37345 Jps </div><div class="line">37332 Launcher </div><div class="line">37333 SdkServer </div><div class="line">8732 QuorumPeerMain </div><div class="line">5566</div></pre></td></tr></table></figure>
+<p>查到进程ID为37333，则启动greys的命令为 </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./greys.sh 37333</div></pre></td></tr></table></figure>
+<p>该命令未指定IP和PORT，则默认是<strong>127.0.0.1</strong>和<strong>3658</strong> 其等价于 </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./greys.sh 37333@127.0.0.1</div></pre></td></tr></table></figure>
+<p>和</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./greys.sh 37333@127.0.0.1:3658</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="会话与任务"><a href="#会话与任务" class="headerlink" title="会话与任务"></a>会话与任务</h3><p>Greys是一个C/S架构的程序，所以当Client访问到Server时，Server会维护一个session（会话），以及session的心跳、超时机制。</p>
+<p>在成功启动greys后，可以看到dmsdk的控制台打印出了如下信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">2017-11-08 01:20:53 [Attach Listener] INFO  greys-anatomy - ga-server listening on network=127.0.0.1;port=3658;timeout=6000;</div><div class="line">2017-11-08 01:20:54 [ga-selector-daemon] INFO  greys-anatomy - accept new connection, client=java.nio.channels.SocketChannel[connected local=/127.0.0.1:3658 remote=/127.0.0.1:50920]@session[0]</div><div class="line">2017-11-08 01:20:54 [ga-command-execute-daemon] INFO  greys-anatomy - unReg adviceId=0;listener=null</div><div class="line">2017-11-08 01:20:54 [ga-command-execute-daemon] INFO  greys-anatomy - unReg adviceId=1;listener=null</div></pre></td></tr></table></figure>
+<p>事务（Tx）机制则是建立在session的基础上，所有的命令交互都会创建一个事务，并且产生对应的队列进行输出缓冲。</p>
+<p>事务伴随着命令的生命周期而存在，命令分两种：</p>
+<ul>
+<li>立即返回 立即返回的命令定义是：敲下命令后Server端立即返回最终结果，后续无持续反馈信息，释放Client对输入的锁定，重新开放让用户输入信息，比如version、sc、sm等。</li>
+<li>等待中止 等待中止的命令则是需要用户主动输入Ctrl+D完成的命令中止操作。命令执行后无法立即返回最终结果，而是不断的将中间产生的输出源源不断的输出到客户端中，这种命令比如stack、monitor等。</li>
+</ul>
+<h2 id="Greys命令详解"><a href="#Greys命令详解" class="headerlink" title="Greys命令详解"></a>Greys命令详解</h2><h3 id="命令清单"><a href="#命令清单" class="headerlink" title="命令清单"></a>命令清单</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>help</td>
+<td>查看命令的帮助文档，每个命令和参数都有很详细的说明</td>
+</tr>
+<tr>
+<td>sc</td>
+<td>查看JVM已加载的类信息</td>
+</tr>
+<tr>
+<td>sm</td>
+<td>查看已加载的方法信息</td>
+</tr>
+<tr>
+<td>monitor</td>
+<td>方法执行监控</td>
+</tr>
+<tr>
+<td>trace</td>
+<td>渲染方法内部调用路径，并输出方法路径上的每个节点上耗时</td>
+</tr>
+<tr>
+<td>ptrace</td>
+<td>强化版的<code>trace</code>命令。通过指定渲染路径，并可记录下路径中所有方法的入参、返值；与<code>tt</code>命令联动。</td>
+</tr>
+<tr>
+<td>watch</td>
+<td>方法执行数据观测</td>
+</tr>
+<tr>
+<td>tt</td>
+<td>方法执行数据的时空隧道，记录下指定方法每次调用的入参和返回信息，并能对这些不同的时间下调用进行观测</td>
+</tr>
+<tr>
+<td>stack</td>
+<td>输出当前方法被调用的调用路径</td>
+</tr>
+<tr>
+<td>js</td>
+<td>支持使用JavaScript脚本；支持CommonJS部分规范模块化（BMD规范）</td>
+</tr>
+<tr>
+<td>version</td>
+<td>输出当前目标Java进程所加载的Greys版本号</td>
+</tr>
+<tr>
+<td>quit</td>
+<td>退出greys客户端</td>
+</tr>
+<tr>
+<td>shutdown</td>
+<td>关闭greys服务端</td>
+</tr>
+<tr>
+<td>reset</td>
+<td>重置增强类，将被greys增强过的类全部还原</td>
+</tr>
+<tr>
+<td>session</td>
+<td>查看当前会话</td>
+</tr>
+<tr>
+<td>jvm</td>
+<td>查看当前JVM的信息</td>
+</tr>
+</tbody>
+</table>
+<p>greys的全部命令如表格所述，这里我们主要介绍一下help、sc、monitor、ptrace、tt几个具有代表性的常用命令。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/20/ElasticSerach学习笔记-二/" rel="next" title="Elsaticsearch学习笔记(二)">
+                <i class="fa fa-chevron-left"></i> Elsaticsearch学习笔记(二)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/26/ElasticSerach学习笔记-三/" rel="prev" title="ElasticSerach学习笔记（三）">
+                ElasticSerach学习笔记（三） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Mr.Xia</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Greys-简介"><span class="nav-number">1.</span> <span class="nav-text">Greys 简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#于是乎，Greys诞生了！"><span class="nav-number">1.1.</span> <span class="nav-text">于是乎，Greys诞生了！</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目标群体"><span class="nav-number">1.2.</span> <span class="nav-text">目标群体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软件特点"><span class="nav-number">1.3.</span> <span class="nav-text">软件特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不适合的场景"><span class="nav-number">1.4.</span> <span class="nav-text">不适合的场景</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#功能特性"><span class="nav-number">2.</span> <span class="nav-text">功能特性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#交互方式"><span class="nav-number">2.1.</span> <span class="nav-text">交互方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主要功能"><span class="nav-number">2.2.</span> <span class="nav-text">主要功能</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Greys入门"><span class="nav-number">3.</span> <span class="nav-text">Greys入门</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#软件安装"><span class="nav-number">3.1.</span> <span class="nav-text">软件安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动Greys"><span class="nav-number">3.2.</span> <span class="nav-text">启动Greys</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#会话与任务"><span class="nav-number">3.3.</span> <span class="nav-text">会话与任务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Greys命令详解"><span class="nav-number">4.</span> <span class="nav-text">Greys命令详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命令清单"><span class="nav-number">4.1.</span> <span class="nav-text">命令清单</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr.Xia</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
