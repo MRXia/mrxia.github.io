@@ -6,10 +6,10 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
 
 
@@ -20,8 +20,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -40,7 +40,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -48,9 +48,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Spring,JSR-310," />
+  <meta name="keywords" content="Spring,JSR-310,">
 
 
 
@@ -120,7 +120,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/11/SpringBoot-support-LocalDate/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/11/SpringBoot-support-LocalDate/">
 
 
 
@@ -154,7 +154,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Memories Off - Mine</span>
         <span class="logo-line-after"><i></i></span>
@@ -184,7 +184,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -194,7 +194,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -204,7 +204,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -214,7 +214,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -257,7 +257,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mr.Xia">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -321,22 +321,22 @@
 
       
         <p>Java 8日期/时间（ Date/Time）API是开发人员最受追捧的变化之一，其简洁、清晰以及线程安全等特性使得其推出后就备受Java开发者欢迎。</p>
-<p>Java 8日期/时间API是<a href="https://jcp.org/en/jsr/detail?id=310" target="_blank" rel="external">JSR-310</a>的实现，它的实现目标是克服旧的日期时间实现中所有的缺陷。但是Spring中的很多组件标准（如JPA2.1）的制定时间更早，因此未兼容到Java 8的新时间类型（LocalDate, LocalTime, LocalDateTime)，所以直接使用这些类型作为时间属性时，会出现转换失败等异常。</p>
+<p>Java 8日期/时间API是<a href="https://jcp.org/en/jsr/detail?id=310" target="_blank" rel="noopener">JSR-310</a>的实现，它的实现目标是克服旧的日期时间实现中所有的缺陷。但是Spring中的很多组件标准（如JPA2.1）的制定时间更早，因此未兼容到Java 8的新时间类型（LocalDate, LocalTime, LocalDateTime)，所以直接使用这些类型作为时间属性时，会出现转换失败等异常。</p>
 <p>但Spring各组件在随后的更新中均添加了对Java 8新时间类型的支持，但是需要进行手动配置。使用这些相关的支持，可以让我们更愉快地使用LocalDate等类型作为我们对象默认的时间属性了。</p>
 <a id="more"></a>
 <h2 id="如何将LocalDate和LocalDateTime通过JPA持久化"><a href="#如何将LocalDate和LocalDateTime通过JPA持久化" class="headerlink" title="如何将LocalDate和LocalDateTime通过JPA持久化"></a>如何将LocalDate和LocalDateTime通过JPA持久化</h2><p>当我们在使用JPA进行持久层操作时，如果实体（entity）的某个属性为Java 8的新时间类型时，它将无法正确地被持久化到数据库。JPA会将其映射为一个<strong><em>BLOB</em></strong>字段而不是<em>DATE</em> or <em>TIMESTAMP</em>，而这并不是我们所希望的。</p>
-<h3 id="使用AttributeConverter支持新时间类型的映射转换"><a href="#使用AttributeConverter支持新时间类型的映射转换" class="headerlink" title="使用AttributeConverter支持新时间类型的映射转换"></a>使用AttributeConverter支持新时间类型的映射转换</h3><p>在JPA标准中，<em>DATE</em>字段使用<a href="https://docs.oracle.com/javase/8/docs/api/java/sql/Date.html" target="_blank" rel="external"><em>java.sql.Date</em></a>进行映射，而<em>TIMESTAMP</em>字段则是<a href="https://docs.oracle.com/javase/8/docs/api/java/sql/Timestamp.html" target="_blank" rel="external"><em>java.sql.Timestamp</em></a>。 <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Date.html" target="_blank" rel="external"><em>java.util.Date</em></a>则可以通过<a href="https://docs.oracle.com/javaee/7/api/javax/persistence/Temporal.html" target="_blank" rel="external"><em>@Temporal</em></a>注解指定映射的时间类型。因此，如果要让JPA兼容新的时间类型，则需要将新时间类型转换为JPA支持的时间类型。</p>
-<h4 id="使用Spring官方提供的Converter"><a href="#使用Spring官方提供的Converter" class="headerlink" title="使用Spring官方提供的Converter"></a>使用Spring官方提供的Converter</h4><p>在Sping Data的公共模块中，很早便加入了JSR-310的<a href="https://spring.io/blog/2015/03/26/what-s-new-in-spring-data-fowler" target="_blank" rel="external">支持</a>，如果要使用该Converter，只需要在你的应用启动类中添加以下配置：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@EntityScan</span>(</div><div class="line">  basePackageClasses = &#123; Application.class, Jsr310JpaConverters.class&#125;</div><div class="line">)</div><div class="line"><span class="meta">@SpringBootApplication</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Application</span> </span>&#123; … &#125;</div></pre></td></tr></table></figure>
+<h3 id="使用AttributeConverter支持新时间类型的映射转换"><a href="#使用AttributeConverter支持新时间类型的映射转换" class="headerlink" title="使用AttributeConverter支持新时间类型的映射转换"></a>使用AttributeConverter支持新时间类型的映射转换</h3><p>在JPA标准中，<em>DATE</em>字段使用<a href="https://docs.oracle.com/javase/8/docs/api/java/sql/Date.html" target="_blank" rel="noopener"><em>java.sql.Date</em></a>进行映射，而<em>TIMESTAMP</em>字段则是<a href="https://docs.oracle.com/javase/8/docs/api/java/sql/Timestamp.html" target="_blank" rel="noopener"><em>java.sql.Timestamp</em></a>。 <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Date.html" target="_blank" rel="noopener"><em>java.util.Date</em></a>则可以通过<a href="https://docs.oracle.com/javaee/7/api/javax/persistence/Temporal.html" target="_blank" rel="noopener"><em>@Temporal</em></a>注解指定映射的时间类型。因此，如果要让JPA兼容新的时间类型，则需要将新时间类型转换为JPA支持的时间类型。</p>
+<h4 id="使用Spring官方提供的Converter"><a href="#使用Spring官方提供的Converter" class="headerlink" title="使用Spring官方提供的Converter"></a>使用Spring官方提供的Converter</h4><p>在Sping Data的公共模块中，很早便加入了JSR-310的<a href="https://spring.io/blog/2015/03/26/what-s-new-in-spring-data-fowler" target="_blank" rel="noopener">支持</a>，如果要使用该Converter，只需要在你的应用启动类中添加以下配置：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@EntityScan</span>(</span><br><span class="line">  basePackageClasses = &#123; Application.class, Jsr310JpaConverters.class&#125;</span><br><span class="line">)</span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Application</span> </span>&#123; … &#125;</span><br></pre></td></tr></table></figure>
 <p>该配置将保证你的应用目录以及JSR-310的Converter将被扫描到，并且支持使用新的时间类型的entity被持久化。但需要注意的是，该Converter只是将新时间类型转换为了传统的<em>Date</em>，而且仅支持未带时区信息的时间类型。</p>
-<h4 id="使用自定义的Converter"><a href="#使用自定义的Converter" class="headerlink" title="使用自定义的Converter"></a>使用自定义的Converter</h4><p>由于<em>Spring-Data-JPA</em>默认使用的<em>Hibernate</em>对<strong><em>JPA2.1</em></strong>标准进行的实现。而在<em>JPA2.1</em>中，增加了<a href="https://www.thoughts-on-java.org/jpa-21-how-to-implement-type-converter/" target="_blank" rel="external">Attribute Converter</a>功能，因此，可以通过自定义Attribute Converter来实现新时间类型的转换。</p>
-<p>例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Converter</span>(autoApply = <span class="keyword">true</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LocalDateAttributeConverter</span> <span class="keyword">implements</span> <span class="title">AttributeConverter</span>&lt;<span class="title">LocalDate</span>, <span class="title">Date</span>&gt; </span>&#123;</div><div class="line">    </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> Date <span class="title">convertToDatabaseColumn</span><span class="params">(LocalDate locDate)</span> </span>&#123;</div><div class="line">    	<span class="keyword">return</span> (locDate == <span class="keyword">null</span> ? <span class="keyword">null</span> : Date.valueOf(locDate));</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> LocalDate <span class="title">convertToEntityAttribute</span><span class="params">(Date sqlDate)</span> </span>&#123;</div><div class="line">    	<span class="keyword">return</span> (sqlDate == <span class="keyword">null</span> ? <span class="keyword">null</span> : sqlDate.toLocalDate());</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>首先需要实现<em>AttributeConverter<localdate, date=""></localdate,></em>接口，包括它的两个转换方法：<em>convertToDatabaseColumn</em> 和 <em>convertToEntityAttribute</em>，它们两个定义了从实体类型（LocalDate）转换成数据库字段类型（Date）以及与之相反方法。这里的写法非常简单，因为<em>java.sql.Date</em>已经有现成的通过LocalDate进行转换的方法。</p>
-<p>然后需要将该属性转换器添加 <a href="https://docs.oracle.com/javaee/7/api/javax/persistence/Converter.html" target="_blank" rel="external"><em>@Converter</em></a> 注解并设置<em>autoApply</em>属性为<em>true</em>，该设置将保证该转换器会自动应用到<em>LocalDate</em>类型的属性上。</p>
+<h4 id="使用自定义的Converter"><a href="#使用自定义的Converter" class="headerlink" title="使用自定义的Converter"></a>使用自定义的Converter</h4><p>由于<em>Spring-Data-JPA</em>默认使用的<em>Hibernate</em>对<strong><em>JPA2.1</em></strong>标准进行的实现。而在<em>JPA2.1</em>中，增加了<a href="https://www.thoughts-on-java.org/jpa-21-how-to-implement-type-converter/" target="_blank" rel="noopener">Attribute Converter</a>功能，因此，可以通过自定义Attribute Converter来实现新时间类型的转换。</p>
+<p>例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Converter</span>(autoApply = <span class="keyword">true</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LocalDateAttributeConverter</span> <span class="keyword">implements</span> <span class="title">AttributeConverter</span>&lt;<span class="title">LocalDate</span>, <span class="title">Date</span>&gt; </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Date <span class="title">convertToDatabaseColumn</span><span class="params">(LocalDate locDate)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">return</span> (locDate == <span class="keyword">null</span> ? <span class="keyword">null</span> : Date.valueOf(locDate));</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> LocalDate <span class="title">convertToEntityAttribute</span><span class="params">(Date sqlDate)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">return</span> (sqlDate == <span class="keyword">null</span> ? <span class="keyword">null</span> : sqlDate.toLocalDate());</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>首先需要实现<em>AttributeConverter&lt;LocalDate, Date&gt;</em>接口，包括它的两个转换方法：<em>convertToDatabaseColumn</em> 和 <em>convertToEntityAttribute</em>，它们两个定义了从实体类型（LocalDate）转换成数据库字段类型（Date）以及与之相反方法。这里的写法非常简单，因为<em>java.sql.Date</em>已经有现成的通过LocalDate进行转换的方法。</p>
+<p>然后需要将该属性转换器添加 <a href="https://docs.oracle.com/javaee/7/api/javax/persistence/Converter.html" target="_blank" rel="noopener"><em>@Converter</em></a> 注解并设置<em>autoApply</em>属性为<em>true</em>，该设置将保证该转换器会自动应用到<em>LocalDate</em>类型的属性上。</p>
 <p>最后确认该Converter可以被bean扫描器扫描到，这样我就完成了一个自定义的属性转换器。同理，我们可以创建一个<em>LocalDateTime</em>的转换器：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Converter</span>(autoApply = <span class="keyword">true</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LocalDateTimeAttributeConverter</span> <span class="keyword">implements</span> <span class="title">AttributeConverter</span>&lt;<span class="title">LocalDateTime</span>, <span class="title">Timestamp</span>&gt; </span>&#123;</div><div class="line">	</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> Timestamp <span class="title">convertToDatabaseColumn</span><span class="params">(LocalDateTime locDateTime)</span> </span>&#123;</div><div class="line">    	<span class="keyword">return</span> (locDateTime == <span class="keyword">null</span> ? <span class="keyword">null</span> : Timestamp.valueOf(locDateTime));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> LocalDateTime <span class="title">convertToEntityAttribute</span><span class="params">(Timestamp sqlTimestamp)</span> </span>&#123;</div><div class="line">    	<span class="keyword">return</span> (sqlTimestamp == <span class="keyword">null</span> ? <span class="keyword">null</span> : sqlTimestamp.toLocalDateTime());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Converter</span>(autoApply = <span class="keyword">true</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LocalDateTimeAttributeConverter</span> <span class="keyword">implements</span> <span class="title">AttributeConverter</span>&lt;<span class="title">LocalDateTime</span>, <span class="title">Timestamp</span>&gt; </span>&#123;</span><br><span class="line">	</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Timestamp <span class="title">convertToDatabaseColumn</span><span class="params">(LocalDateTime locDateTime)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">return</span> (locDateTime == <span class="keyword">null</span> ? <span class="keyword">null</span> : Timestamp.valueOf(locDateTime));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> LocalDateTime <span class="title">convertToEntityAttribute</span><span class="params">(Timestamp sqlTimestamp)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">return</span> (sqlTimestamp == <span class="keyword">null</span> ? <span class="keyword">null</span> : sqlTimestamp.toLocalDateTime());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="其它方案"><a href="#其它方案" class="headerlink" title="其它方案"></a>其它方案</h3><p><em>Hibernate5</em>同样提供了对Java 8新时间类型的支持，可以通过pom文件中增加以下配置来添加依赖：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.hibernate<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>hibernate-java8<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>5.1.0.Final<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.hibernate<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>hibernate-java8<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>5.1.0.Final<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>附：hibernate5 Java 8支持包映射关系对应表</p>
 <table>
@@ -385,13 +385,13 @@
 <h2 id="SpringMVC如何将request参数自动封装为LocalDate和LocalDateTime"><a href="#SpringMVC如何将request参数自动封装为LocalDate和LocalDateTime" class="headerlink" title="SpringMVC如何将request参数自动封装为LocalDate和LocalDateTime"></a>SpringMVC如何将request参数自动封装为LocalDate和LocalDateTime</h2><p>在使用SpringMVC时，<em>java.util.Date</em>类型字段可以使用<em>@DateTimeFormat</em>注解将<strong>application/x-www-from-urlencoded</strong>类型的请求中的字符串进行自动转换。而Java 8中新的时间类型该如何支持呢?</p>
 <h3 id="在application-x-www-from-urlencoded（键值对）请求中自动转换新时间类型"><a href="#在application-x-www-from-urlencoded（键值对）请求中自动转换新时间类型" class="headerlink" title="在application/x-www-from-urlencoded（键值对）请求中自动转换新时间类型"></a>在application/x-www-from-urlencoded（键值对）请求中自动转换新时间类型</h3><p>从<strong>Spring4.0</strong>开始，Spring的<em>context</em>模块包中增加了<strong><em>Jsr310DateTimeFormatAnnotationFormatterFactory</em></strong>工厂类。该类是对<em>@DateTimeFormat</em>注解的<em>JSR310</em>标准扩展支持。因此，在<em>Spring4.0</em>之后，可以直接使用<em>@DateTimeFormat</em>注解标注LocalDate等新时间类型字段，从而实现时间格式字符串到新时间类型的自动转换。</p>
 <p>如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleRequest</span> </span>&#123;</div><div class="line">    </div><div class="line">    <span class="keyword">private</span> Integer id;</div><div class="line">    </div><div class="line">    <span class="meta">@DateTimeFormat</span>(iso = ISO.DATE)</div><div class="line">    <span class="keyword">private</span> LocalDate startDate;</div><div class="line">    </div><div class="line">    <span class="meta">@DateTimeFormat</span>(pattern = <span class="string">"yyyy-MM-dd HH:mm:ss"</span>)</div><div class="line">    <span class="keyword">private</span> LocalDateTime startTime;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleRequest</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@DateTimeFormat</span>(iso = ISO.DATE)</span><br><span class="line">    <span class="keyword">private</span> LocalDate startDate;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@DateTimeFormat</span>(pattern = <span class="string">"yyyy-MM-dd HH:mm:ss"</span>)</span><br><span class="line">    <span class="keyword">private</span> LocalDateTime startTime;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="在JSON请求中支持新时间类型的转换"><a href="#在JSON请求中支持新时间类型的转换" class="headerlink" title="在JSON请求中支持新时间类型的转换"></a>在JSON请求中支持新时间类型的转换</h3><p>如果请求的格式为<strong>application/json</strong>，则<em>@DateTimeFormat</em>注解将不再生效，取而代之的是Spring默认使用<em>Jackson</em>作为json的序列化工具，因此需要增加<em>Jackson</em>对新时间类型的反序列化器（Deserializer）来支持新时间类型的转换。</p>
 <p>而<em>Jackson</em>官方已经提供了对JSR310标准的支持包，只需在pom文件中添加以下配置引入依赖（版本自选）：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.fasterxml.jackson.datatype<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jackson-datatype-jsr310<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.fasterxml.jackson.datatype<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jackson-datatype-jsr310<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>然后在需要反序列化（序列化）的对象字段上添加<em>@JsonDeserialize(using = LocalDateDeserializer.class)</em>（<em>@JsonSerialize</em>(using = LocalDateSerializer.class)）注解，<em>Jackson</em>便会使用该反序列化器将json字段反序列化成LocalDate类型。</p>
 <p>如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleRequest</span> </span>&#123;</div><div class="line">    </div><div class="line">    <span class="keyword">private</span> Integer id;</div><div class="line">    </div><div class="line">    <span class="meta">@JsonDeserialize</span>(using = LocalDateDeserializer.class)</div><div class="line">    <span class="meta">@JsonSerialize</span>(using = LocalDateSerializer.class)</div><div class="line">    <span class="keyword">private</span> LocalDate startDate;</div><div class="line">    </div><div class="line">    <span class="meta">@JsonDeserialize</span>(using = LocalDateTimeDeserializer.class)</div><div class="line">    <span class="meta">@JsonSerialize</span>(using = LocalDateTimeSerializer.class)</div><div class="line">    <span class="keyword">private</span> LocalDateTime startTime;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleRequest</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@JsonDeserialize</span>(using = LocalDateDeserializer.class)</span><br><span class="line">    <span class="meta">@JsonSerialize</span>(using = LocalDateSerializer.class)</span><br><span class="line">    <span class="keyword">private</span> LocalDate startDate;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@JsonDeserialize</span>(using = LocalDateTimeDeserializer.class)</span><br><span class="line">    <span class="meta">@JsonSerialize</span>(using = LocalDateTimeSerializer.class)</span><br><span class="line">    <span class="keyword">private</span> LocalDateTime startTime;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>Java 8的日期/时间API非常易于使用，理解了其设计语法会让相似方法也变得非常好找。以上的这些说明就是为了方便更快地在实际应用中将旧的时间类切换为新的时间类型，虽然会有些时间上的消耗，但我相信在你理解了新Api带来的方便与好处后，就会知道这是值得的。</p>
 
       
@@ -410,9 +410,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Spring/" rel="tag"># Spring</a>
+            <a href="/tags/spring/" rel="tag"># Spring</a>
           
-            <a href="/tags/JSR-310/" rel="tag"># JSR-310</a>
+            <a href="/tags/jsr-310/" rel="tag"># JSR-310</a>
           
         </div>
       
@@ -425,8 +425,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/28/设计模式——工厂模式/" rel="next" title="设计模式——工厂模式">
-                <i class="fa fa-chevron-left"></i> 设计模式——工厂模式
+              <a href="/2017/11/26/ElasticSerach学习笔记-三/" rel="next" title="ElasticSerach学习笔记（三）">
+                <i class="fa fa-chevron-left"></i> ElasticSerach学习笔记（三）
               </a>
             
           </div>
@@ -434,6 +434,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/12/随笔/" rel="prev" title="随笔">
+                随笔 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -515,6 +519,15 @@
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
 
             
               
@@ -576,7 +589,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

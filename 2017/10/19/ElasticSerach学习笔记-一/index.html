@@ -6,10 +6,10 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
 
 
@@ -20,8 +20,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -40,7 +40,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -48,9 +48,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Elsaticsearch," />
+  <meta name="keywords" content="Elsaticsearch,">
 
 
 
@@ -120,7 +120,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/10/19/ElasticSerach学习笔记-一/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/10/19/ElasticSerach学习笔记-一/">
 
 
 
@@ -154,7 +154,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Memories Off - Mine</span>
         <span class="logo-line-after"><i></i></span>
@@ -184,7 +184,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -194,7 +194,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -204,7 +204,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -214,7 +214,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -257,7 +257,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mr.Xia">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -327,20 +327,20 @@
 <p>jdk-version：1.8.0_60-b27</p>
 </blockquote>
 <h3 id="安装ElasticSearch"><a href="#安装ElasticSearch" class="headerlink" title="安装ElasticSearch"></a>安装ElasticSearch</h3><p>使用homebrew进行安装</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">brew update</div><div class="line">brew install elasticsearch</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew update</span><br><span class="line">brew install elasticsearch</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <p>安装完毕后使用<code>brew info elasticsearch</code>查看安装信息</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">elasticsearch: stable 5.6.3, HEAD</div><div class="line">Distributed search &amp; analytics engine</div><div class="line">https://www.elastic.co/products/elasticsearch</div><div class="line">/usr/local/Cellar/elasticsearch/5.6.0 (104 files, 35.9MB) *</div><div class="line">  Built from source on 2017-09-18 at 17:51:15</div><div class="line">From: https://github.com/Homebrew/homebrew-core/blob/master/Formula/elasticsearch.rb</div><div class="line">==&gt; Requirements</div><div class="line">Required: java &gt;= 1.8 ✔</div><div class="line">==&gt; Caveats</div><div class="line">Data:    /usr/local/var/elasticsearch/elasticsearch_xiazijian/</div><div class="line">Logs:    /usr/local/var/log/elasticsearch/elasticsearch_xiazijian.log</div><div class="line">Plugins: /usr/local/Cellar/elasticsearch/5.6.3/libexec/plugins/</div><div class="line">Config:  /usr/local/etc/elasticsearch/</div><div class="line">plugin script: /usr/local/Cellar/elasticsearch/5.6.3/libexec/bin/elasticsearch-plugin</div><div class="line"></div><div class="line">To have launchd start elasticsearch now and restart at login:</div><div class="line">  brew services start elasticsearch</div><div class="line">Or, if you don't want/need a background service you can just run:</div><div class="line">  elasticsearch</div></pre></td></tr></table></figure>
-<h3 id="启动Elasticsearch"><a href="#启动Elasticsearch" class="headerlink" title="启动Elasticsearch"></a>启动Elasticsearch</h3><p>使用<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">elasticsearch -d</div></pre></td></tr></table></figure></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">elasticsearch: stable 5.6.3, HEAD</span><br><span class="line">Distributed search &amp; analytics engine</span><br><span class="line">https://www.elastic.co/products/elasticsearch</span><br><span class="line">/usr/local/Cellar/elasticsearch/5.6.0 (104 files, 35.9MB) *</span><br><span class="line">  Built from source on 2017-09-18 at 17:51:15</span><br><span class="line">From: https://github.com/Homebrew/homebrew-core/blob/master/Formula/elasticsearch.rb</span><br><span class="line">==&gt; Requirements</span><br><span class="line">Required: java &gt;= 1.8 ✔</span><br><span class="line">==&gt; Caveats</span><br><span class="line">Data:    /usr/local/var/elasticsearch/elasticsearch_xiazijian/</span><br><span class="line">Logs:    /usr/local/var/log/elasticsearch/elasticsearch_xiazijian.log</span><br><span class="line">Plugins: /usr/local/Cellar/elasticsearch/5.6.3/libexec/plugins/</span><br><span class="line">Config:  /usr/local/etc/elasticsearch/</span><br><span class="line">plugin script: /usr/local/Cellar/elasticsearch/5.6.3/libexec/bin/elasticsearch-plugin</span><br><span class="line"></span><br><span class="line">To have launchd start elasticsearch now and restart at login:</span><br><span class="line">  brew services start elasticsearch</span><br><span class="line">Or, if you don't want/need a background service you can just run:</span><br><span class="line">  elasticsearch</span><br></pre></td></tr></table></figure>
+<h3 id="启动Elasticsearch"><a href="#启动Elasticsearch" class="headerlink" title="启动Elasticsearch"></a>启动Elasticsearch</h3><p>使用<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">elasticsearch -d</span><br></pre></td></tr></table></figure></p>
 <p>后台运行ElasticSearch</p>
 <p>启动完成后，可以使用</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl 'http://localhost:9200/?pretty'</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl 'http://localhost:9200/?pretty'</span><br></pre></td></tr></table></figure>
 <p>测试Elasticsearch是否启动成功</p>
 <blockquote>
 <p>elasticsearch 可以通过 RESTful API接口进行通信，因此可以使用curl命令直接交互，为方便之后的调试，可以使用sense等http插件(5.0后sense插件集成在了kibana的console里)</p>
 </blockquote>
 <p>若成功会返回类似如下信息</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"name"</span>: <span class="string">"9MPKJSI"</span>,</div><div class="line">    <span class="attr">"cluster_name"</span>: <span class="string">"elasticsearch_xiazijian"</span>,</div><div class="line">    <span class="attr">"cluster_uuid"</span>: <span class="string">"niBjHFWQSBGIvUd59M1azA"</span>,</div><div class="line">    <span class="attr">"version"</span>: &#123;</div><div class="line">        <span class="attr">"number"</span>: <span class="string">"5.6.0"</span>,</div><div class="line">        <span class="attr">"build_hash"</span>: <span class="string">"781a835"</span>,</div><div class="line">        <span class="attr">"build_date"</span>: <span class="string">"2017-09-07T03:09:58.087Z"</span>,</div><div class="line">        <span class="attr">"build_snapshot"</span>: <span class="literal">false</span>,</div><div class="line">        <span class="attr">"lucene_version"</span>: <span class="string">"6.6.0"</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">"tagline"</span>: <span class="string">"You Know, for Search"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"name"</span>: <span class="string">"9MPKJSI"</span>,</span><br><span class="line">    <span class="attr">"cluster_name"</span>: <span class="string">"elasticsearch_xiazijian"</span>,</span><br><span class="line">    <span class="attr">"cluster_uuid"</span>: <span class="string">"niBjHFWQSBGIvUd59M1azA"</span>,</span><br><span class="line">    <span class="attr">"version"</span>: &#123;</span><br><span class="line">        <span class="attr">"number"</span>: <span class="string">"5.6.0"</span>,</span><br><span class="line">        <span class="attr">"build_hash"</span>: <span class="string">"781a835"</span>,</span><br><span class="line">        <span class="attr">"build_date"</span>: <span class="string">"2017-09-07T03:09:58.087Z"</span>,</span><br><span class="line">        <span class="attr">"build_snapshot"</span>: <span class="literal">false</span>,</span><br><span class="line">        <span class="attr">"lucene_version"</span>: <span class="string">"6.6.0"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"tagline"</span>: <span class="string">"You Know, for Search"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="面向文档"><a href="#面向文档" class="headerlink" title="面向文档"></a>面向文档</h3><p>Elasticsearch 是 <em>面向文档</em> 的，意味着它存储整个对象或 <em>文档(document)</em>。Elasticsearch的文档(documnet)可以看做是应用程序或编程语言中的对象(Object)，因此相比一般的关系型数据库，Elasticsearch可以将整个对象进行直接存储，而不是拆分成一个个字段并做一一映射。</p>
 <blockquote>
 <p>在Elasticsearch中使用JSON作为文档的序列化格式：因其简单、简洁、易于阅读，已成为NoSQ领域的标准格式。</p>
@@ -358,7 +358,7 @@
 <p>通常情况下，我们使用的术语 <em>对象</em> 和 <em>文档</em> 是可以互相替换的。不过有一个区别：对象对象中可以嵌套其它其它对象，但在Elasticsearch中，<em>文档</em>特指最顶层的根对象，这个根对象被序列化成JSON存储在Elasticsearch中，并指定了唯一ID。</p>
 <h4 id="Index"><a href="#Index" class="headerlink" title="Index"></a>Index</h4><p>Elasticsearch的数据必须保存在某个<em>类型（type）</em>中，而<em>类型</em>必须位于指定<em>索引（index）</em>内，而<em>索引</em>是保存在ES集群中。这里的<em>索引（index）</em>可以看作是关系型数据库的Schema或者Database；而<em>类型（type）</em>可以看做是关系型数据库的Table。</p>
 <p>进行索引操作的命令非常简单：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">PUT /megacorp/employee/1</div><div class="line">&#123;</div><div class="line">    "first_name" : "John",</div><div class="line">    "last_name" :  "Smith",</div><div class="line">    "age" :        25,</div><div class="line">    "about" :      "I love to go rock climbing",</div><div class="line">    "interests": [ "sports", "music" ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">PUT /megacorp/employee/1</span><br><span class="line">&#123;</span><br><span class="line">    "first_name" : "John",</span><br><span class="line">    "last_name" :  "Smith",</span><br><span class="line">    "age" :        25,</span><br><span class="line">    "about" :      "I love to go rock climbing",</span><br><span class="line">    "interests": [ "sports", "music" ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>其中，路径/megacorp/employee/1 包含了三部分信息：</p>
 <p>megacorp</p>
 <p>​    索引名称</p>
@@ -368,19 +368,19 @@
 <p>​    雇员id</p>
 <p>请求体（JSON文档）包含了雇员的详细信息。在整个过程中，无需预先创建索引或指定每个属性的类型，Elasticsearch将会默认生成索引并对该文档进行索引。我们可以用相同的方式索引第二，第三条数据。</p>
 <h4 id="Simple-Search"><a href="#Simple-Search" class="headerlink" title="Simple Search"></a>Simple Search</h4><p>进行简单查找的接口如下：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">GET /megacorp/employee/_search</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET /megacorp/employee/_search</span><br></pre></td></tr></table></figure>
 <p>这里的_search改为对应文档的id，可以直接查找指定id的文档。而这个接口会直接返回<em>megacorp索引</em>以及<em>employee</em>类型下的所有3个文档，放在<code>hits</code>数组中。一次搜索默认返回10条数据。</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"took"</span>: <span class="number">3</span>,</div><div class="line">  <span class="attr">"timed_out"</span>: <span class="literal">false</span>,</div><div class="line">  <span class="attr">"_shards"</span>: &#123;</div><div class="line">    <span class="attr">"total"</span>: <span class="number">5</span>,</div><div class="line">    <span class="attr">"successful"</span>: <span class="number">5</span>,</div><div class="line">    <span class="attr">"skipped"</span>: <span class="number">0</span>,</div><div class="line">    <span class="attr">"failed"</span>: <span class="number">0</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">"hits"</span>: &#123;</div><div class="line">    <span class="attr">"total"</span>: <span class="number">3</span>,</div><div class="line">    <span class="attr">"max_score"</span>: <span class="number">1</span>,</div><div class="line">    <span class="attr">"hits"</span>: [</div><div class="line">      &#123;</div><div class="line">        <span class="attr">"_index"</span>: <span class="string">"megacorp"</span>,</div><div class="line">        <span class="attr">"_type"</span>: <span class="string">"employee"</span>,</div><div class="line">        <span class="attr">"_id"</span>: <span class="string">"2"</span>,</div><div class="line">        <span class="attr">"_score"</span>: <span class="number">1</span>,</div><div class="line">        <span class="attr">"_source"</span>: &#123;</div><div class="line">          <span class="attr">"first_name"</span>: <span class="string">"Jane"</span>,</div><div class="line">          <span class="attr">"last_name"</span>: <span class="string">"Smith"</span>,</div><div class="line">          <span class="attr">"age"</span>: <span class="number">32</span>,</div><div class="line">          <span class="attr">"about"</span>: <span class="string">"I like to collect rock albums"</span>,</div><div class="line">          <span class="attr">"interests"</span>: [</div><div class="line">            <span class="string">"music"</span></div><div class="line">          ]</div><div class="line">        &#125;</div><div class="line">      &#125;,</div><div class="line">      &#123;</div><div class="line">        <span class="attr">"_index"</span>: <span class="string">"megacorp"</span>,</div><div class="line">        <span class="attr">"_type"</span>: <span class="string">"employee"</span>,</div><div class="line">        <span class="attr">"_id"</span>: <span class="string">"1"</span>,</div><div class="line">        <span class="attr">"_score"</span>: <span class="number">1</span>,</div><div class="line">        <span class="attr">"_source"</span>: &#123;</div><div class="line">          <span class="attr">"first_name"</span>: <span class="string">"John"</span>,</div><div class="line">          <span class="attr">"last_name"</span>: <span class="string">"Smith"</span>,</div><div class="line">          <span class="attr">"age"</span>: <span class="number">25</span>,</div><div class="line">          <span class="attr">"about"</span>: <span class="string">"I love to go rock climbing"</span>,</div><div class="line">          <span class="attr">"interests"</span>: [</div><div class="line">            <span class="string">"sports"</span>,</div><div class="line">            <span class="string">"music"</span></div><div class="line">          ]</div><div class="line">        &#125;</div><div class="line">      &#125;,</div><div class="line">      &#123;</div><div class="line">        <span class="attr">"_index"</span>: <span class="string">"megacorp"</span>,</div><div class="line">        <span class="attr">"_type"</span>: <span class="string">"employee"</span>,</div><div class="line">        <span class="attr">"_id"</span>: <span class="string">"3"</span>,</div><div class="line">        <span class="attr">"_score"</span>: <span class="number">1</span>,</div><div class="line">        <span class="attr">"_source"</span>: &#123;</div><div class="line">          <span class="attr">"first_name"</span>: <span class="string">"Douglas"</span>,</div><div class="line">          <span class="attr">"last_name"</span>: <span class="string">"Fir"</span>,</div><div class="line">          <span class="attr">"age"</span>: <span class="number">35</span>,</div><div class="line">          <span class="attr">"about"</span>: <span class="string">"I like to build cabinets"</span>,</div><div class="line">          <span class="attr">"interests"</span>: [</div><div class="line">            <span class="string">"forestry"</span></div><div class="line">          ]</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    ]</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"took"</span>: <span class="number">3</span>,</span><br><span class="line">  <span class="attr">"timed_out"</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="attr">"_shards"</span>: &#123;</span><br><span class="line">    <span class="attr">"total"</span>: <span class="number">5</span>,</span><br><span class="line">    <span class="attr">"successful"</span>: <span class="number">5</span>,</span><br><span class="line">    <span class="attr">"skipped"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">"failed"</span>: <span class="number">0</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"hits"</span>: &#123;</span><br><span class="line">    <span class="attr">"total"</span>: <span class="number">3</span>,</span><br><span class="line">    <span class="attr">"max_score"</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">"hits"</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">"_index"</span>: <span class="string">"megacorp"</span>,</span><br><span class="line">        <span class="attr">"_type"</span>: <span class="string">"employee"</span>,</span><br><span class="line">        <span class="attr">"_id"</span>: <span class="string">"2"</span>,</span><br><span class="line">        <span class="attr">"_score"</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="attr">"_source"</span>: &#123;</span><br><span class="line">          <span class="attr">"first_name"</span>: <span class="string">"Jane"</span>,</span><br><span class="line">          <span class="attr">"last_name"</span>: <span class="string">"Smith"</span>,</span><br><span class="line">          <span class="attr">"age"</span>: <span class="number">32</span>,</span><br><span class="line">          <span class="attr">"about"</span>: <span class="string">"I like to collect rock albums"</span>,</span><br><span class="line">          <span class="attr">"interests"</span>: [</span><br><span class="line">            <span class="string">"music"</span></span><br><span class="line">          ]</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">"_index"</span>: <span class="string">"megacorp"</span>,</span><br><span class="line">        <span class="attr">"_type"</span>: <span class="string">"employee"</span>,</span><br><span class="line">        <span class="attr">"_id"</span>: <span class="string">"1"</span>,</span><br><span class="line">        <span class="attr">"_score"</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="attr">"_source"</span>: &#123;</span><br><span class="line">          <span class="attr">"first_name"</span>: <span class="string">"John"</span>,</span><br><span class="line">          <span class="attr">"last_name"</span>: <span class="string">"Smith"</span>,</span><br><span class="line">          <span class="attr">"age"</span>: <span class="number">25</span>,</span><br><span class="line">          <span class="attr">"about"</span>: <span class="string">"I love to go rock climbing"</span>,</span><br><span class="line">          <span class="attr">"interests"</span>: [</span><br><span class="line">            <span class="string">"sports"</span>,</span><br><span class="line">            <span class="string">"music"</span></span><br><span class="line">          ]</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">"_index"</span>: <span class="string">"megacorp"</span>,</span><br><span class="line">        <span class="attr">"_type"</span>: <span class="string">"employee"</span>,</span><br><span class="line">        <span class="attr">"_id"</span>: <span class="string">"3"</span>,</span><br><span class="line">        <span class="attr">"_score"</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="attr">"_source"</span>: &#123;</span><br><span class="line">          <span class="attr">"first_name"</span>: <span class="string">"Douglas"</span>,</span><br><span class="line">          <span class="attr">"last_name"</span>: <span class="string">"Fir"</span>,</span><br><span class="line">          <span class="attr">"age"</span>: <span class="number">35</span>,</span><br><span class="line">          <span class="attr">"about"</span>: <span class="string">"I like to build cabinets"</span>,</span><br><span class="line">          <span class="attr">"interests"</span>: [</span><br><span class="line">            <span class="string">"forestry"</span></span><br><span class="line">          ]</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>进行指定的查找有两种方式：</p>
 <ul>
 <li><p>查询字符串（<em>query-string</em>)</p>
 <p>可以通过查询字符串传递查询参数给搜索接口：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">GET /megacorp/employee/_search?q=last_name:Smith</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET /megacorp/employee/_search?q=last_name:Smith</span><br></pre></td></tr></table></figure>
 <p>查询参数赋值给参数q，这个查询返回了所有last_name为Smith的数据</p>
 </li>
 <li><p>查询表达式(DSL)</p>
 <p>使用JSON构造查询条件：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">GET /megacorp/employee/_search</div><div class="line">&#123;</div><div class="line">    <span class="attr">"query"</span> : &#123;</div><div class="line">        <span class="attr">"match"</span> : &#123;</div><div class="line">            <span class="attr">"last_name"</span> : <span class="string">"Smith"</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">GET /megacorp/employee/_search</span><br><span class="line">&#123;</span><br><span class="line">    <span class="attr">"query"</span> : &#123;</span><br><span class="line">        <span class="attr">"match"</span> : &#123;</span><br><span class="line">            <span class="attr">"last_name"</span> : <span class="string">"Smith"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>这两种方式都会返回相同的查询结果，使用查询表达式可以支持更<strong>复杂</strong>更<strong>健壮</strong>的查询。</p>
@@ -401,7 +401,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Elsaticsearch/" rel="tag"># Elsaticsearch</a>
+            <a href="/tags/elsaticsearch/" rel="tag"># Elsaticsearch</a>
           
         </div>
       
@@ -504,6 +504,15 @@
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
 
             
               
@@ -565,7 +574,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
